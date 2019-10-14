@@ -21,7 +21,7 @@
   {% endif %}
 </head>
 
-<body></body>
+<body>
     <header class="site-header">
         <nav class="navbar navbar-expand-lg col mb-5 navbar-dark bg-dark">
           <div class="container">
@@ -48,6 +48,15 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8">
+
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          {{ messages }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
         {% block content %}
         {% endblock %}
       </div>

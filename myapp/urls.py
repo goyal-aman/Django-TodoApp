@@ -5,8 +5,8 @@ from todo.views import home, addTodo, deleteTodo, editTodo
 from users import views as users_views
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", home, name="home"),
     
+    path("", home, name="home"),
     path("register/", include('users.urls')),
     
     path("addTodo/", addTodo, name="addTodo"),
