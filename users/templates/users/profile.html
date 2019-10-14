@@ -1,5 +1,15 @@
 {% extends 'todo/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-{{ user.username }}
+<div class="border-bottom mb-5">
+    <h2 >{{user.username}}</h2>
+    <p class="test-secondary">{{user.email}}</p>
+</div>
+<div class="border-left">
+    <div class="card-body">
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+
 {% endblock content %}
