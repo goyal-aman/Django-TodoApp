@@ -13,12 +13,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
-
-  {% if title %}
-  <title>Django Blog - {{ title }}</title>
-  {% else %}
-  <title>Django Blog</title>
-  {% endif %}
+  <title> Todo {{ user.username}}</title>
 </head>
 
 <body></body>
@@ -39,6 +34,7 @@
         <div class="navbar-nav">
           {% if user.is_authenticated %}
           <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+          <a class="nav-item nav-link" href="{% url 'users-profile' %}">Profile</a>
           {% else %}
           <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
           <a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
