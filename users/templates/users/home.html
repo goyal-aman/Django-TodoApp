@@ -1,0 +1,36 @@
+{% extends "todo/base.html" %}
+{% block content %}
+
+<form action="/addTodo/" method="POST" class="input-group mb-3">
+  {% csrf_token %}
+
+  <input type="text" name="content" class="form-control" placeholder="Enter your task" aria-describedby="button-addon2"/>
+  <input type="submit" value="Add" class="btn btn-outline-secondary"/>
+</form>
+{% for post in all_todo %}
+
+<div class="card border-dark mb-3">
+  <div class="card-header">date posted{{post.date_posted}}</div>
+  <div class="card-body text-dark">
+    <h5 class="card-title">Title{{post.title}}</h5>
+    <p class="card-text">{{post.content}}</p>
+
+    <div class="input-group mb-3">
+      <form action="/edit/{{post.id}}/" method="POST">
+        {% csrf_token %}
+        <a href="#" class="btn btn-info">Edit</a>
+      </form>
+      <form action="/delete/{{post.id}}/" method="POST">{% csrf_token %}
+        <input type="submit" href="#" class="btn btn-danger" value="Delete">
+      </form>
+    </div>
+  </div>
+
+</div>
+
+{% endfor %}
+{% endblock %}
+
+
+{% block todo_objects %}
+{% endblock %}

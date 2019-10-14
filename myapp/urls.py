@@ -1,3 +1,21 @@
+from django.contrib import admin
+from django.urls import path, include
+from todo.views import home, addTodo, deleteTodo, editTodo
+
+from users import views as users_views
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", home, name="home"),
+    
+    path("register/", include('users.urls')),
+    
+    path("addTodo/", addTodo, name="addTodo"),
+    path("delete/<int:item_id>/", deleteTodo, name="addTodo"),
+    path("edit/<int:item_id>/", editTodo, name="editTodo"),
+
+]
+
+
 """myapp URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,14 +31,3 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from todo.views import home, addTodo, deleteTodo, editTodo
-
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", home, name="home"),
-    path("addTodo/", addTodo, name="addTodo"),
-    path("delete/<int:item_id>/", deleteTodo, name="addTodo"),
-    path("edit/<int:item_id>/", editTodo, name="editTodo"),
-]
