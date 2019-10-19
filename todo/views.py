@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Todo
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+@login_required
 def home(request):
     all_todo = Todo.objects.all().order_by('-pk')
     context = {
