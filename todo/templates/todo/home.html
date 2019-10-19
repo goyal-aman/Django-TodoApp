@@ -11,7 +11,7 @@
 {% for post in all_todo %}
 
 <div class="card border-dark mb-3">
-  <div class="card-header">date posted{{post.date_posted}}</div>
+  <div class="card-header"><b>{{post.author}}</b> <small>{{post.date_posted}}</small></div>
   <div class="card-body text-dark">
     <h5 class="card-title">
       {% if post.title != "" %}

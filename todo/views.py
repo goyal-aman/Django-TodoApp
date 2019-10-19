@@ -15,7 +15,8 @@ def addTodo(request):
     todo_obj = request.POST['content']
     print(f'this is aman {todo_obj}')
     if todo_obj != '':
-        Todo(content=todo_obj).save()
+        Todo(content=todo_obj, author=request.user).save()
+
     return redirect('home')
 
 def deleteTodo(request, item_id):
