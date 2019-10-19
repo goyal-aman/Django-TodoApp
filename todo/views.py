@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def home(request):
-    all_todo = Todo.objects.all().order_by('-pk')
+    all_todo = Todo.objects.filter(author = request.user).order_by('-pk')
     context = {
         'all_todo':all_todo
     }
