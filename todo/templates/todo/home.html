@@ -21,10 +21,12 @@
     <p class="card-text">{{post.content}}</p>
 
     <div class="input-group mb-3">
-      <form action="/edit/{{post.id}}/" method="POST">
+      <!--
+        <form action="/edit/{{post.id}}/" method="POST">
         {% csrf_token %}
         <a href="#" class="btn btn-info">Edit</a>
       </form>
+      -->
       <form action="/delete/{{post.id}}/" method="POST">{% csrf_token %}
         <input type="submit" href="#" class="btn btn-danger" value="Delete">
       </form>
